@@ -1,49 +1,106 @@
 import { profile } from "../data/cv"
+import { BriefcaseBusiness, CalendarDays, Download, Languages, Mail, MapPin, Phone } from "lucide-react"
+import { motion } from "motion/react"
+
+const details = [
+  { icon: BriefcaseBusiness, value: profile.experience },
+  { icon: MapPin, value: profile.location },
+  { icon: Languages, value: profile.languages },
+  { icon: Mail, value: profile.email },
+  { icon: Phone, value: profile.phone },
+]
 
 export function Sidebar() {
   return (
-    <aside className="hidden min-h-screen p-8 lg:block">
-      <div className="sticky top-24">
-        <div className="mb-8 flex items-center gap-4">
-          <img
-            src="/images/profile-1.png"
-            alt="Jose Valdez"
-            className="h-16 w-16 rounded object-cover"
-          />
-
-          <div>
-            <h1 className="text-lg font-bold text-white">{profile.name}</h1>
-            <p className="text-sm text-zinc-400">{profile.title}</p>
+    <aside className="border-r border-[#2d2d2d] bg-[#191919] lg:min-h-screen">
+      <div className="lg:sticky lg:top-8 lg:h-[calc(100vh-56px)] lg:overflow-y-auto">
+        <motion.div
+          className="p-6 xl:p-7"
+          initial={{ opacity: 0, x: -18 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
+          <div className="mb-8 flex gap-4">
+            <div className="group relative h-16 w-12 shrink-0 overflow-hidden">
+              <img
+                src="/images/profile-1.png"
+                alt="Jose Valdez"
+                className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:opacity-0"
+              />
+              <img
+                src="/images/profile-2.png"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-0 transition duration-500 group-hover:opacity-100"
+              />
+            </div>
+            <div>
+              <h1 className="text-[17px] font-bold text-[#f4f4f4]">{profile.name}</h1>
+              <p className="mt-1 max-w-[150px] text-[14px] font-medium leading-[22px] text-[#d5d5d5]">
+                {profile.title}
+              </p>
+            </div>
           </div>
-        </div>
 
-        <p className="mb-8 text-sm leading-6 text-zinc-400">
-          Senior Full Stack Software Engineer focused on scalable enterprise software.
-        </p>
+          <p className="text-[15px] font-medium leading-[22px] text-[#d0d0d0]">
+            Senior Full Stack Software Engineer with 6+ years of experience
+            building enterprise web applications using React, Angular, C#, .NET,
+            Node.js, AWS and Azure.
+          </p>
 
-        <div className="space-y-5 text-sm text-zinc-400">
-          <p>💼 {profile.experience}</p>
-          <p>📍 {profile.location}</p>
-          <p>🌐 {profile.languages}</p>
-          <p>✉️ {profile.email}</p>
-          <p>📞 {profile.phone}</p>
-        </div>
+          <p className="mt-5 text-[15px] font-medium leading-[22px] text-[#d0d0d0]">
+            Passionate about scalable systems, cloud architectures, clean code and
+            high-quality software delivery.
+          </p>
 
-        <div className="mt-8 space-y-3">
-          <a
-            href="/cv/Jose-Valdez-CV-English.pdf"
-            download
-            className="block border border-zinc-700 px-4 py-3 text-center text-sm font-bold text-white hover:border-purple-400 hover:text-purple-400"
-          >
-            Download CV
-          </a>
+          <dl className="mt-8 space-y-6 text-[13px] font-medium text-[#d0d0d0]">
+            {details.map((detail) => (
+              <div key={detail.value} className="flex gap-4">
+                <dt className="pt-0.5 text-[#9b9b9b]">
+                  <detail.icon className="h-4 w-4" />
+                </dt>
+                <dd className="break-words">{detail.value}</dd>
+              </div>
+            ))}
+          </dl>
 
-          <a
+          <div className="mt-9 space-y-6">
+            <motion.a
+              href="/cv/Jose-Valdez-CV-English.pdf"
+              download
+              className="grid grid-cols-[1fr_42px] border border-[#2d2d2d] text-center text-sm font-bold text-[#f4f4f4] transition hover:border-[#d8d175] hover:text-[#d8d175]"
+              whileHover={{ x: 3 }}
+              whileTap={{ scale: 0.99 }}
+            >
+              <span className="px-4 py-3">Download CV Eng</span>
+              <span className="grid place-items-center border-l border-[#2d2d2d] bg-[#242424]">
+                <Download className="h-4 w-4" />
+              </span>
+            </motion.a>
+
+            <motion.a
+              href="/cv/Jose-Valdez-CV-Espanol.pdf"
+              download
+              className="grid grid-cols-[1fr_42px] border border-[#2d2d2d] text-center text-sm font-bold text-[#f4f4f4] transition hover:border-[#d8d175] hover:text-[#d8d175]"
+              whileHover={{ x: 3 }}
+              whileTap={{ scale: 0.99 }}
+            >
+              <span className="px-4 py-3">Download CV Esp</span>
+              <span className="grid place-items-center border-l border-[#2d2d2d] bg-[#242424]">
+                <Download className="h-4 w-4" />
+              </span>
+            </motion.a>
+          </div>
+        </motion.div>
+
+        <div className="border-t border-[#2d2d2d] p-6 xl:p-7">
+          <motion.a
             href="#contact"
-            className="block bg-white px-4 py-3 text-center text-sm font-bold text-black hover:bg-purple-300"
+            className="flex items-center justify-center gap-2 bg-white px-5 py-4 text-center text-sm font-semibold text-black transition hover:bg-[#d8d175]"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
           >
-            Work with me
-          </a>
+            <CalendarDays className="h-4 w-4" />
+            Schedule a call
+          </motion.a>
         </div>
       </div>
     </aside>

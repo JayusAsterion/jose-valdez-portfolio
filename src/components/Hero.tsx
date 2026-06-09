@@ -1,35 +1,46 @@
 import { profile } from "../data/cv"
+import { motion } from "motion/react"
+
+const reveal = {
+  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+  visible: { opacity: 1, y: 0, filter: "blur(0px)" },
+}
 
 export function Hero() {
   return (
-    <section className="px-6 py-20 md:px-12">
-      <p className="mb-6 text-sm text-purple-400">{"<!-- Hero section -->"}</p>
+    <section className="min-h-[690px] px-5 pb-24 pt-9 sm:px-10 md:px-16 lg:px-20">
+      <motion.p
+        className="editor-comment text-sm"
+        variants={reveal}
+        initial="hidden"
+        animate="visible"
+      >
+        {"<!-- Hero section -->"}
+      </motion.p>
 
-      <h2 className="max-w-4xl text-6xl font-black leading-none tracking-tight text-white md:text-8xl">
-        Senior <br />
-        Full Stack <br />
-        <span className="text-zinc-500">Engineer</span>
-      </h2>
+      <motion.h2
+        className="font-display mt-10 max-w-[780px] text-[56px] font-black leading-[0.92] text-[#f7f7f7] sm:text-[74px] md:text-[96px] lg:text-[118px]"
+        variants={reveal}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 0.08 }}
+      >
+        Senior
+        <br />
+        Full Stack
+        <br />
+        Engineer
+      </motion.h2>
 
-      <p className="mt-10 max-w-2xl text-lg leading-8 text-zinc-400">
+      <motion.p
+        className="editor-copy mt-9 max-w-3xl text-base leading-7 md:text-[17px]"
+        variants={reveal}
+        initial="hidden"
+        animate="visible"
+        transition={{ delay: 0.18 }}
+      >
         {profile.summary}
-      </p>
-
-      <div className="mt-10 flex flex-wrap gap-4">
-        <a
-          href="#projects"
-          className="border border-purple-400 px-5 py-3 text-sm font-bold text-purple-400 hover:bg-purple-400 hover:text-black"
-        >
-          View Projects
-        </a>
-
-        <a
-          href="#contact"
-          className="bg-white px-5 py-3 text-sm font-bold text-black hover:bg-purple-300"
-        >
-          Contact Me
-        </a>
-      </div>
+      </motion.p>
     </section>
   )
 }

@@ -2,7 +2,7 @@ export const profile = {
   name: "Jose Valdez",
   fullName: "Jose Fernando Valdez Perez",
   title: "Senior Full Stack Software Engineer",
-  location: "Guatemala",
+  location: "Antigua Guatemala, Guatemala",
   email: "valdezpjose@gmail.com",
   phone: "+502 5870-5529",
   linkedin: "https://linkedin.com/in/valdezpjose",
@@ -21,11 +21,34 @@ export const skills = {
   practices: ["Clean Code", "SOLID", "Agile/Scrum", "Code Reviews", "Microservices", "REST APIs"],
 }
 
+export const focusAreas = [
+  {
+    title: "Frontend Engineering",
+    description:
+      "Modern, responsive and scalable interfaces using React, Angular, TypeScript, Tailwind and component-based architectures.",
+  },
+  {
+    title: "Backend Development",
+    description:
+      "Robust APIs, business logic and enterprise services using C#, .NET, ASP.NET Web API, Node.js, Java and Spring Boot.",
+  },
+  {
+    title: "Cloud and DevOps",
+    description:
+      "Deployment support, CI/CD pipelines, Docker, Kubernetes, AWS and Microsoft Azure integrations.",
+  },
+  {
+    title: "Software Architecture",
+    description:
+      "Clean code, SOLID principles, microservices, code reviews, system integration and maintainable enterprise solutions.",
+  },
+]
+
 export const experience = [
   {
-    company: "Civix",
+    company: "Civix, Allied Global",
     role: "Senior Full Stack Software Engineer",
-    period: "2026 – Present",
+    period: "2026 - Present",
     location: "Remote",
     points: [
       "Designed and developed end-to-end enterprise web application features using React, JavaScript, C#/.NET and Azure cloud services.",
@@ -34,9 +57,9 @@ export const experience = [
     ],
   },
   {
-    company: "IT Solved, Allied Global",
+    company: "Isolved, Allied Global",
     role: "Senior Full Stack Software Engineer",
-    period: "2025 – 2026",
+    period: "2025 - 2026",
     location: "Guatemala City, Guatemala",
     points: [
       "Developed end-to-end features for an enterprise web application using C#, .NET and ASP.NET Web API.",
@@ -47,7 +70,7 @@ export const experience = [
   {
     company: "Itemize, Allied Global",
     role: "Senior Full Stack Software Engineer",
-    period: "2024 – 2025",
+    period: "2024 - 2025",
     location: "Guatemala City, Guatemala",
     points: [
       "Led a team of software engineers to develop and deploy a complex application using React, Redux, Node.js, AdonisJS, PostgreSQL and MySQL.",
@@ -58,7 +81,7 @@ export const experience = [
   {
     company: "Infile",
     role: "Senior Full Stack Software Engineer",
-    period: "2023 – 2024",
+    period: "2023 - 2024",
     location: "Guatemala City, Guatemala",
     points: [
       "Developed REST APIs and implemented OAuth authentication to securely expose data to clients.",
@@ -66,36 +89,84 @@ export const experience = [
       "Developed microservices for legal digital document applications, including invoices and related workflows.",
     ],
   },
+  {
+    company: "Conduent",
+    role: "Full Stack Software Engineer",
+    period: "2022 - 2023",
+    location: "Guatemala City, Guatemala",
+    points: [
+      "Developed and maintained enterprise web application modules across frontend and backend layers.",
+      "Supported production workflows, integrations and internal system improvements.",
+    ],
+  },
+  {
+    company: "DocuNect, Cari.Net",
+    role: "Full Stack Software Engineer",
+    period: "2021 - 2022",
+    location: "Guatemala City, Guatemala",
+    points: [
+      "Built web application features and backend services for document-driven business processes.",
+      "Worked with relational databases, APIs and internal application support.",
+    ],
+  },
+  {
+    company: "BDG",
+    role: "Full Stack Software Engineer",
+    period: "2020 - 2021",
+    location: "Guatemala City, Guatemala",
+    points: [
+      "Implemented web application features and supported software maintenance tasks.",
+      "Collaborated on frontend, backend and database updates for business systems.",
+    ],
+  },
 ]
 
 export const projects = [
   {
-    title: "Enterprise Financial Operations Platform",
+    title: "Skincare eCommerce",
     description:
-      "Built and maintained a financial operations web application using React, Redux, Node.js, AdonisJS, PostgreSQL, MySQL and AWS.",
-    stack: ["React", "Redux", "Node.js", "AdonisJS", "AWS"],
+      "A refined commerce interface inspired by product-led storefronts, reusable UI systems and conversion-focused flows.",
+    stack: ["React", "TypeScript", "Commerce"],
+    image: "/images/framer/work-skincare.avif",
   },
   {
-    title: "Digital Document Management Platform",
+    title: "Minimal Form",
     description:
-      "Developed microservices and REST APIs for legal digital document applications, including invoices, bills and related workflows.",
-    stack: [".NET", "OAuth", "Microservices", "CI/CD"],
+      "A clean form experience with restrained visuals, responsive layout and accessible interaction states.",
+    stack: ["React", "Tailwind", "UX"],
+    image: "/images/framer/work-minimal-form.avif",
   },
   {
-    title: "Enterprise Web Applications",
+    title: "Real Estate Website",
     description:
-      "Designed scalable web applications using Angular, React, C# and .NET for enterprise environments.",
-    stack: ["Angular", "React", "C#", ".NET"],
+      "A visual property landing page structure focused on editorial rhythm, imagery and clear call-to-actions.",
+    stack: ["Frontend", "Responsive", "CMS"],
+    image: "/images/framer/work-real-estate.avif",
   },
   {
-    title: "Cloud-Based Software Delivery",
+    title: "Podcast Landing Page",
     description:
-      "Supported cloud-based integrations, deployments and CI/CD pipelines using Azure, AWS, Docker and Git.",
-    stack: ["Azure", "AWS", "Docker", "Git"],
+      "A dark media landing page concept with bold art direction, strong contrast and repeatable content modules.",
+    stack: ["React", "Media", "Design"],
+    image: "/images/framer/work-podcast.avif",
+  },
+  {
+    title: "AI Meets Education",
+    description:
+      "An AI education product concept with clear information architecture and modular interface states.",
+    stack: ["AI", "Product", "UI"],
+    image: "/images/framer/work-education.avif",
+  },
+  {
+    title: "Mobile Banking App",
+    description:
+      "A financial product interface exploring trust, speed and clean interaction patterns for mobile workflows.",
+    stack: ["Fintech", "Mobile", "Systems"],
+    image: "/images/framer/work-banking.avif",
   },
 ]
 
 export const awards = [
-  "Third Place — XIII Inter-University Science and Technology Olympiad, 2018",
-  "Second Place — Huawei Seeds for the Future Competition, 2019",
+  "Third Place - XIII Inter-University Science and Technology Olympiad, 2018",
+  "Second Place - Huawei Seeds for the Future Competition, 2019",
 ]
