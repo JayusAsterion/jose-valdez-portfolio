@@ -34,6 +34,7 @@ export const translations = {
         "I design and build scalable enterprise applications using React, Angular, .NET, Node.js and cloud technologies. Focused on clean architecture, microservices, automation and high-quality software delivery.",
     },
     sidebar: {
+      available: "Available",
       intro:
         "Senior Full Stack Software Engineer with 6+ years of experience building enterprise web applications using React, Angular, C#, .NET, Node.js, AWS and Azure.",
       passion:
@@ -48,6 +49,9 @@ export const translations = {
     },
     projects: {
       comment: "<!-- Featured work -->",
+      heading: "Selected builds with real demos",
+      description:
+        "A focused set of production-style projects with live previews, source code, and polished user flows.",
       viewDemo: "View Demo",
       github: "GitHub",
       previewUnavailable: "Preview unavailable",
@@ -110,21 +114,73 @@ export const translations = {
     },
     experience: {
       comment: "<!-- In a previous life -->",
+      heading: "Experience that ships",
+      description:
+        "A practical path through enterprise products, cloud platforms, team leadership, and full stack delivery.",
       jobs: [
-        { company: "Civix, Allied Global", role: "Senior Full Stack Software Engineer", period: "2026 - Present" },
-        { company: "Isolved, Allied Global", role: "Senior Full Stack Software Engineer", period: "2025 - 2026" },
-        { company: "Itemize, Allied Global", role: "Senior Full Stack Software Engineer", period: "2024 - 2025" },
-        { company: "Infile", role: "Senior Full Stack Software Engineer", period: "2023 - 2024" },
-        { company: "Conduent", role: "Full Stack Software Engineer", period: "2022 - 2023" },
-        { company: "DocuNect, Cari.Net", role: "Full Stack Software Engineer", period: "2021 - 2022" },
-        { company: "BDG", role: "Full Stack Software Engineer", period: "2020 - 2021" },
+        {
+          company: "Civix, Allied Global",
+          role: "Senior Full Stack Software Engineer",
+          period: "2026 - Present",
+          location: "Remote",
+          points: ["React", ".NET", "Azure", "CI/CD"],
+        },
+        {
+          company: "Isolved, Allied Global",
+          role: "Senior Full Stack Software Engineer",
+          period: "2025 - 2026",
+          location: "Guatemala City",
+          points: ["C#", ".NET", "ASP.NET Web API", "Enterprise workflows"],
+        },
+        {
+          company: "Itemize, Allied Global",
+          role: "Senior Full Stack Software Engineer",
+          period: "2024 - 2025",
+          location: "Guatemala City",
+          points: ["React", "Node.js", "AWS", "Team leadership"],
+        },
+        {
+          company: "Infile",
+          role: "Senior Full Stack Software Engineer",
+          period: "2023 - 2024",
+          location: "Guatemala City",
+          points: ["REST APIs", "OAuth", "Microservices", "Automation"],
+        },
+        {
+          company: "Conduent",
+          role: "Full Stack Software Engineer",
+          period: "2022 - 2023",
+          location: "Guatemala City",
+          points: ["Frontend", "Backend", "Integrations"],
+        },
+        {
+          company: "DocuNect, Cari.Net",
+          role: "Full Stack Software Engineer",
+          period: "2021 - 2022",
+          location: "Guatemala City",
+          points: ["Documents", "APIs", "Databases"],
+        },
+        {
+          company: "BDG",
+          role: "Full Stack Software Engineer",
+          period: "2020 - 2021",
+          location: "Guatemala City",
+          points: ["Web apps", "Maintenance", "Database updates"],
+        },
       ],
     },
     techStack: {
       comment: "<!-- My tech stack -->",
+      heading: "Tools I use to build and scale",
+      groups: {
+        backend: "Backend and systems",
+        frontend: "Frontend and UI",
+        cloud: "Data and cloud",
+      },
     },
     awards: {
       comment: "<!-- Awards -->",
+      heading: "Recognition",
       labelPrefix: "award",
       items: [
         "Third Place - XIII Inter-University Science and Technology Olympiad, 2018",
@@ -180,6 +236,7 @@ export const translations = {
         "Diseno y construyo aplicaciones empresariales escalables con React, Angular, .NET, Node.js y tecnologias cloud. Enfocado en arquitectura limpia, microservicios, automatizacion y entrega de software de alta calidad.",
     },
     sidebar: {
+      available: "Disponible",
       intro:
         "Ingeniero Senior Full Stack con 6+ anos de experiencia construyendo aplicaciones web empresariales con React, Angular, C#, .NET, Node.js, AWS y Azure.",
       passion:
@@ -194,6 +251,9 @@ export const translations = {
     },
     projects: {
       comment: "<!-- Trabajo destacado -->",
+      heading: "Proyectos seleccionados con demos reales",
+      description:
+        "Una seleccion enfocada de proyectos estilo produccion con previews en vivo, codigo fuente y flujos pulidos.",
       viewDemo: "Ver demo",
       github: "GitHub",
       previewUnavailable: "Vista no disponible",
@@ -256,21 +316,73 @@ export const translations = {
     },
     experience: {
       comment: "<!-- En una vida anterior -->",
+      heading: "Experiencia que entrega resultados",
+      description:
+        "Un recorrido practico por productos empresariales, plataformas cloud, liderazgo tecnico y desarrollo full stack.",
       jobs: [
-        { company: "Civix, Allied Global", role: "Ingeniero Senior Full Stack", period: "2026 - Presente" },
-        { company: "Isolved, Allied Global", role: "Ingeniero Senior Full Stack", period: "2025 - 2026" },
-        { company: "Itemize, Allied Global", role: "Ingeniero Senior Full Stack", period: "2024 - 2025" },
-        { company: "Infile", role: "Ingeniero Senior Full Stack", period: "2023 - 2024" },
-        { company: "Conduent", role: "Ingeniero Full Stack", period: "2022 - 2023" },
-        { company: "DocuNect, Cari.Net", role: "Ingeniero Full Stack", period: "2021 - 2022" },
-        { company: "BDG", role: "Ingeniero Full Stack", period: "2020 - 2021" },
+        {
+          company: "Civix, Allied Global",
+          role: "Ingeniero Senior Full Stack",
+          period: "2026 - Presente",
+          location: "Remoto",
+          points: ["React", ".NET", "Azure", "CI/CD"],
+        },
+        {
+          company: "Isolved, Allied Global",
+          role: "Ingeniero Senior Full Stack",
+          period: "2025 - 2026",
+          location: "Ciudad de Guatemala",
+          points: ["C#", ".NET", "ASP.NET Web API", "Flujos empresariales"],
+        },
+        {
+          company: "Itemize, Allied Global",
+          role: "Ingeniero Senior Full Stack",
+          period: "2024 - 2025",
+          location: "Ciudad de Guatemala",
+          points: ["React", "Node.js", "AWS", "Liderazgo tecnico"],
+        },
+        {
+          company: "Infile",
+          role: "Ingeniero Senior Full Stack",
+          period: "2023 - 2024",
+          location: "Ciudad de Guatemala",
+          points: ["REST APIs", "OAuth", "Microservicios", "Automatizacion"],
+        },
+        {
+          company: "Conduent",
+          role: "Ingeniero Full Stack",
+          period: "2022 - 2023",
+          location: "Ciudad de Guatemala",
+          points: ["Frontend", "Backend", "Integraciones"],
+        },
+        {
+          company: "DocuNect, Cari.Net",
+          role: "Ingeniero Full Stack",
+          period: "2021 - 2022",
+          location: "Ciudad de Guatemala",
+          points: ["Documentos", "APIs", "Bases de datos"],
+        },
+        {
+          company: "BDG",
+          role: "Ingeniero Full Stack",
+          period: "2020 - 2021",
+          location: "Ciudad de Guatemala",
+          points: ["Web apps", "Mantenimiento", "Bases de datos"],
+        },
       ],
     },
     techStack: {
       comment: "<!-- Mi stack tecnico -->",
+      heading: "Herramientas para construir y escalar",
+      groups: {
+        backend: "Backend y sistemas",
+        frontend: "Frontend e UI",
+        cloud: "Datos y cloud",
+      },
     },
     awards: {
       comment: "<!-- Premios -->",
+      heading: "Reconocimientos",
       labelPrefix: "premio",
       items: [
         "Tercer Lugar - XIII Olimpiada Interuniversitaria de Ciencia y Tecnologia, 2018",

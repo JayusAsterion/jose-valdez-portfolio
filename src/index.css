@@ -6,17 +6,48 @@
 @import "tailwindcss";
 
 html {
+  background: #0f0f10;
   scroll-behavior: smooth;
 }
 
 body {
-  background: #1b1b1b;
+  background:
+    radial-gradient(circle at 72% 8%, rgba(168, 85, 247, 0.08), transparent 28rem),
+    linear-gradient(180deg, #111112 0%, #171717 42%, #101011 100%);
   color: #c7c7c7;
   font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   font-weight: 400;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(216, 209, 117, 0.28);
+  color: #ffffff;
+}
+
+* {
+  scrollbar-color: #3f3f46 #111112;
+}
+
+::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111112;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border: 2px solid #111112;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(196, 181, 253, 0.85);
+  outline-offset: 3px;
 }
 
 .font-display {
@@ -26,11 +57,64 @@ body {
 }
 
 .editor-comment {
-  color: #7a7a7a;
+  color: #8a8a8a;
   font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .editor-copy {
-  color: #b9b9b9;
+  color: #c1c1c1;
   font-weight: 500;
+}
+
+.bg-editor-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+.bg-editor-scanlines {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+  background-size: 100% 8px;
+}
+
+.ambient-glow {
+  animation: ambient-drift 18s ease-in-out infinite alternate;
+}
+
+.float-code {
+  animation: float-code 12s ease-in-out infinite;
+}
+
+@keyframes ambient-drift {
+  from {
+    opacity: 0.55;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0.85;
+    transform: translate3d(-24px, 18px, 0) scale(1.04);
+  }
+}
+
+@keyframes float-code {
+  0%,
+  100% {
+    opacity: 0.34;
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    opacity: 0.58;
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-glow,
+  .float-code {
+    animation: none;
+  }
 }

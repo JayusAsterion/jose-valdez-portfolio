@@ -17,14 +17,14 @@ function App() {
 
   return (
     <MotionConfig reducedMotion="user" transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
-      <main className="min-h-screen bg-[#1b1b1b] font-mono text-[#c7c7c7]">
+      <main className="min-h-screen bg-[#101011] font-mono text-[#c7c7c7]">
         <Header />
 
-        <div className="grid w-full grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)_200px]">
+        <div className="grid w-full grid-cols-1 lg:grid-cols-[292px_minmax(0,1fr)_212px]">
           <Sidebar />
 
-          <section className="relative min-w-0 border-x border-[#2d2d2d] bg-[#1c1c1c] pb-10">
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-10 overflow-hidden border-r border-[#2d2d2d] bg-[#191919] text-right text-[12px] font-normal leading-[27px] text-[#6f7784] sm:w-14">
+          <section className="relative min-w-0 border-x border-[#2b2b31] bg-[#171719] pb-10 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-10 overflow-hidden border-r border-[#2b2b31] bg-[#121214] text-right text-[11px] font-normal leading-[28px] text-[#647080] sm:w-14">
               <div className="px-3 py-1">
                 {lineNumbers.map((line) => (
                   <div key={line}>{line}</div>
@@ -43,24 +43,25 @@ function App() {
             </div>
           </section>
 
-          <aside className="hidden min-h-screen border-l border-[#2d2d2d] bg-[#181818] px-7 py-8 lg:block">
+          <aside className="hidden min-h-screen border-l border-[#2b2b31] bg-[#141416] px-6 py-8 lg:block">
             <div className="sticky top-[60px]">
-              <h3 className="border-b border-[#2d2d2d] pb-4 text-base font-normal text-[#c7c7c7]">
+              <h3 className="border-b border-[#2b2b31] pb-4 text-base font-medium text-[#e5e5e5]">
                 Index
               </h3>
 
-              <nav className="mt-7 space-y-5 text-sm font-medium text-[#9d9d9d]">
+              <nav className="mt-6 space-y-2 text-sm font-medium text-[#9d9d9d]">
                 {t.navigation.map((link, index) => (
                   <motion.a
                     key={link.href}
                     href={link.href}
-                    className="block transition hover:text-[#d8d175]"
+                    className="group flex items-center gap-3 py-2 transition hover:text-[#d8d175]"
                     initial={{ opacity: 0, x: 8 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.04 }}
                   >
-                    {link.label}
+                    <span className="h-px w-4 bg-[#3a3a3f] transition group-hover:w-7 group-hover:bg-[#d8d175]" />
+                    <span>{link.label}</span>
                   </motion.a>
                 ))}
               </nav>
@@ -68,11 +69,11 @@ function App() {
           </aside>
         </div>
 
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#2d2d2d] bg-[#111] px-3 py-1.5 text-xs text-[#8d8d8d]">
-        <div className="flex w-full items-center justify-between">
-          <span>{t.footer.status}</span>
-          <span className="hidden sm:inline">{t.footer.welcome}</span>
-        </div>
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#2b2b31] bg-[#0d0d0e]/95 px-3 py-1.5 text-xs text-[#9b9b9b] backdrop-blur">
+          <div className="flex w-full items-center justify-between">
+            <span>{t.footer.status}</span>
+            <span className="hidden text-[#d8d175] sm:inline">{t.footer.welcome}</span>
+          </div>
         </div>
       </main>
     </MotionConfig>
