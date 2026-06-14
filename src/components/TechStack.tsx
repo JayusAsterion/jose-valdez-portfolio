@@ -1,4 +1,5 @@
 import { motion } from "motion/react"
+import { useLanguage } from "../context/language"
 import type { IconType } from "react-icons"
 import {
   SiAngular,
@@ -40,9 +41,11 @@ const techStack: TechItem[] = [
 ]
 
 export function TechStack() {
+  const { t } = useLanguage()
+
   return (
     <section id="tech" className="border-y border-[#2d2d2d] px-5 py-16 sm:px-10 md:px-16 lg:px-20">
-      <p className="editor-comment mb-8 text-sm">{"<!-- My tech stack -->"}</p>
+      <p className="editor-comment mb-8 text-sm">{t.techStack.comment}</p>
 
       <div className="grid border-l border-t border-[#2d2d2d] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {techStack.map((tech, index) => {

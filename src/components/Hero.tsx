@@ -1,5 +1,5 @@
-import { profile } from "../data/cv"
 import { motion } from "motion/react"
+import { useLanguage } from "../context/language"
 
 const reveal = {
   hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
@@ -7,6 +7,8 @@ const reveal = {
 }
 
 export function Hero() {
+  const { t } = useLanguage()
+
   return (
     <section className="min-h-[690px] px-5 pb-24 pt-9 sm:px-10 md:px-16 lg:px-20">
       <motion.p
@@ -15,7 +17,7 @@ export function Hero() {
         initial="hidden"
         animate="visible"
       >
-        {"<!-- Hero section -->"}
+        {t.hero.comment}
       </motion.p>
 
       <motion.h2
@@ -25,11 +27,12 @@ export function Hero() {
         animate="visible"
         transition={{ delay: 0.08 }}
       >
-        Senior
-        <br />
-        Full Stack
-        <br />
-        Engineer
+        {t.hero.title.map((line, index) => (
+          <span key={line}>
+            {line}
+            {index < t.hero.title.length - 1 ? <br /> : null}
+          </span>
+        ))}
       </motion.h2>
 
       <motion.p
@@ -39,7 +42,7 @@ export function Hero() {
         animate="visible"
         transition={{ delay: 0.18 }}
       >
-        {profile.summary}
+        {t.profile.summary}
       </motion.p>
     </section>
   )

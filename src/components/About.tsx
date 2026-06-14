@@ -1,8 +1,10 @@
 import { Download } from "lucide-react"
 import { motion, useScroll, useTransform } from "motion/react"
 import { useRef } from "react"
+import { useLanguage } from "../context/language"
 
 export function About() {
+  const { language, t } = useLanguage()
   const sinceRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: sinceRef,
@@ -26,7 +28,7 @@ export function About() {
           style={{ x: sinceX }}
         >
           <span className="font-display text-[92px] font-black leading-none text-white/[0.045] sm:text-[150px] md:text-[205px] xl:text-[260px]">
-            SINCE
+            {t.about.since}
           </span>
         </motion.div>
 
@@ -55,7 +57,7 @@ export function About() {
       </motion.div>
 
       <div className="px-5 sm:px-10 md:px-16 lg:px-20">
-      <p className="editor-comment mb-5 text-sm">{"<!-- About me section -->"}</p>
+      <p className="editor-comment mb-5 text-sm">{t.about.comment}</p>
 
       <motion.div
         className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_250px]"
@@ -65,34 +67,22 @@ export function About() {
       >
         <div>
           <h2 className="font-display max-w-4xl text-5xl font-black leading-tight text-[#f7f7f7] md:text-6xl">
-            Inside My <span className="text-[#8f8f8f]">Creative Core</span>
+            {t.about.titleStart} <span className="text-[#8f8f8f]">{t.about.titleAccent}</span>
           </h2>
 
           <div className="mt-9 grid max-w-5xl gap-10 lg:grid-cols-[360px_minmax(0,1fr)]">
             <div className="space-y-7 text-[17px] font-medium leading-7 text-[#b9b9b9]">
-              <p>
-                I am a Senior Full Stack Software Engineer with 6+ years of
-                experience designing, developing and deploying enterprise web
-                applications.
-              </p>
-              <p>
-                My experience includes frontend development with React, Angular and
-                TypeScript, backend development with C#, .NET, Node.js and Java,
-                SQL databases, cloud platforms such as AWS and Microsoft Azure,
-                CI/CD pipelines, microservices and system integrations.
-              </p>
-              <p>
-                I enjoy building scalable, maintainable and clean software
-                solutions for real business problems.
-              </p>
+              {t.about.body.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
 
             <p className="max-w-[430px] text-[17px] font-medium leading-7 text-[#b9b9b9]">
-              I enjoy collaborating with teams, solving real-world problems, and{" "}
+              {t.about.collaborationStart}{" "}
               <span className="bg-[#d8d175]/25 px-1 text-[#e8e29a]">
-                turning complex ideas
+                {t.about.collaborationHighlight}
               </span>{" "}
-              into clean, engaging designs.
+              {t.about.collaborationEnd}
             </p>
           </div>
         </div>
@@ -107,13 +97,13 @@ export function About() {
             className="aspect-[1.08] w-full object-cover object-[50%_22%]"
           />
           <div className="border-t border-[#2d2d2d] p-8 text-center">
-            <p className="mb-3 text-sm font-bold text-[#9d9d9d]">Follow me:</p>
+            <p className="mb-3 text-sm font-bold text-[#9d9d9d]">{t.about.followMe}</p>
             <a
-              href="/cv/Jose-Valdez-CV-English.pdf"
+              href={language === "es" ? "/cv/Jose-Valdez-CV-Espanol.pdf" : "/cv/Jose-Valdez-CV-English.pdf"}
               download
               className="mx-auto grid max-w-[175px] grid-cols-[1fr_42px] border border-[#2d2d2d] text-sm font-bold text-[#f4f4f4] transition hover:border-[#d8d175] hover:text-[#d8d175]"
             >
-              <span className="px-4 py-3">Download CV</span>
+              <span className="px-4 py-3">{t.about.downloadCv}</span>
               <span className="grid place-items-center border-l border-[#2d2d2d] bg-[#242424]">
                 <Download className="h-4 w-4" />
               </span>

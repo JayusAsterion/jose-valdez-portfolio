@@ -1,11 +1,14 @@
-import { profile } from "../data/cv"
 import { ExternalLink, GitBranch, Mail } from "lucide-react"
 import { motion } from "motion/react"
+import { useLanguage } from "../context/language"
 
 export function Contact() {
+  const { t } = useLanguage()
+  const profile = t.profile
+
   return (
     <section id="contact" className="px-5 pb-32 sm:px-10 md:px-16 lg:px-20">
-      <p className="editor-comment mb-8 text-sm">{"<!-- Contact me -->"}</p>
+      <p className="editor-comment mb-8 text-sm">{t.contact.comment}</p>
 
       <motion.div
         className="grid gap-10 border border-[#2d2d2d] bg-[#191919] p-6 md:p-9 xl:grid-cols-[minmax(0,1fr)_280px]"
@@ -15,11 +18,10 @@ export function Contact() {
       >
         <div>
           <h2 className="max-w-2xl text-4xl font-black leading-tight text-white md:text-6xl">
-            Let us build something reliable.
+            {t.contact.title}
           </h2>
           <p className="mt-7 max-w-2xl text-[17px] font-medium leading-8 text-[#b9b9b9]">
-            I am open to software engineering opportunities, freelance consulting,
-            technical collaborations and enterprise web application projects.
+            {t.contact.description}
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -30,7 +32,7 @@ export function Contact() {
               whileTap={{ scale: 0.98 }}
             >
               <Mail className="h-4 w-4" />
-              Email me
+              {t.contact.emailMe}
             </motion.a>
             <motion.a
               href={profile.linkedin}
@@ -58,10 +60,10 @@ export function Contact() {
         </div>
 
         <div className="text-sm font-medium leading-7 text-[#b9b9b9]">
-          <p className="text-[#d8d175]">contact.config</p>
-          <p className="mt-5">email: {profile.email}</p>
-          <p>phone: {profile.phone}</p>
-          <p>location: {profile.location}</p>
+          <p className="text-[#d8d175]">{t.contact.config}</p>
+          <p className="mt-5">{t.contact.emailLabel}: {profile.email}</p>
+          <p>{t.contact.phoneLabel}: {profile.phone}</p>
+          <p>{t.contact.locationLabel}: {profile.location}</p>
         </div>
       </motion.div>
     </section>

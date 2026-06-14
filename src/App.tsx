@@ -8,19 +8,13 @@ import { Projects } from "./components/Projects"
 import { Awards } from "./components/Awards"
 import { Contact } from "./components/Contact"
 import { MotionConfig, motion } from "motion/react"
-
-const indexLinks = [
-  { href: "#projects", label: "Work" },
-  { href: "#about", label: "About me" },
-  { href: "#experience", label: "Experience" },
-  { href: "#tech", label: "Tech stack" },
-  { href: "#awards", label: "Awards" },
-  { href: "#contact", label: "Contact me" },
-]
+import { useLanguage } from "./context/language"
 
 const lineNumbers = Array.from({ length: 340 }, (_, index) => index + 1)
 
 function App() {
+  const { t } = useLanguage()
+
   return (
     <MotionConfig reducedMotion="user" transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}>
       <main className="min-h-screen bg-[#1b1b1b] font-mono text-[#c7c7c7]">
@@ -56,7 +50,7 @@ function App() {
               </h3>
 
               <nav className="mt-7 space-y-5 text-sm font-medium text-[#9d9d9d]">
-                {indexLinks.map((link, index) => (
+                {t.navigation.map((link, index) => (
                   <motion.a
                     key={link.href}
                     href={link.href}
@@ -76,8 +70,8 @@ function App() {
 
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#2d2d2d] bg-[#111] px-3 py-1.5 text-xs text-[#8d8d8d]">
         <div className="flex w-full items-center justify-between">
-          <span>Delivered 3 projects, tackled 2 challenges</span>
-          <span className="hidden sm:inline">Welcome to my world!</span>
+          <span>{t.footer.status}</span>
+          <span className="hidden sm:inline">{t.footer.welcome}</span>
         </div>
         </div>
       </main>

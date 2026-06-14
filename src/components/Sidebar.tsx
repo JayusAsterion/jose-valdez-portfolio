@@ -1,16 +1,18 @@
-import { profile } from "../data/cv"
 import { BriefcaseBusiness, CalendarDays, Download, Languages, Mail, MapPin, Phone } from "lucide-react"
 import { motion } from "motion/react"
-
-const details = [
-  { icon: BriefcaseBusiness, value: profile.experience },
-  { icon: MapPin, value: profile.location },
-  { icon: Languages, value: profile.languages },
-  { icon: Mail, value: profile.email },
-  { icon: Phone, value: profile.phone },
-]
+import { useLanguage } from "../context/language"
 
 export function Sidebar() {
+  const { t } = useLanguage()
+  const profile = t.profile
+  const details = [
+    { icon: BriefcaseBusiness, value: profile.experience },
+    { icon: MapPin, value: profile.location },
+    { icon: Languages, value: profile.languages },
+    { icon: Mail, value: profile.email },
+    { icon: Phone, value: profile.phone },
+  ]
+
   return (
     <aside className="border-r border-[#2d2d2d] bg-[#191919] lg:min-h-screen">
       <div className="lg:sticky lg:top-8 lg:h-[calc(100vh-56px)] lg:overflow-y-auto">
@@ -41,14 +43,11 @@ export function Sidebar() {
           </div>
 
           <p className="text-[15px] font-medium leading-[22px] text-[#d0d0d0]">
-            Senior Full Stack Software Engineer with 6+ years of experience
-            building enterprise web applications using React, Angular, C#, .NET,
-            Node.js, AWS and Azure.
+            {t.sidebar.intro}
           </p>
 
           <p className="mt-5 text-[15px] font-medium leading-[22px] text-[#d0d0d0]">
-            Passionate about scalable systems, cloud architectures, clean code and
-            high-quality software delivery.
+            {t.sidebar.passion}
           </p>
 
           <dl className="mt-8 space-y-6 text-[13px] font-medium text-[#d0d0d0]">
@@ -70,7 +69,7 @@ export function Sidebar() {
               whileHover={{ x: 3 }}
               whileTap={{ scale: 0.99 }}
             >
-              <span className="px-4 py-3">Download CV Eng</span>
+              <span className="px-4 py-3">{t.sidebar.downloadCvEnglish}</span>
               <span className="grid place-items-center border-l border-[#2d2d2d] bg-[#242424]">
                 <Download className="h-4 w-4" />
               </span>
@@ -83,7 +82,7 @@ export function Sidebar() {
               whileHover={{ x: 3 }}
               whileTap={{ scale: 0.99 }}
             >
-              <span className="px-4 py-3">Download CV Esp</span>
+              <span className="px-4 py-3">{t.sidebar.downloadCvSpanish}</span>
               <span className="grid place-items-center border-l border-[#2d2d2d] bg-[#242424]">
                 <Download className="h-4 w-4" />
               </span>
@@ -99,7 +98,7 @@ export function Sidebar() {
             whileTap={{ scale: 0.98 }}
           >
             <CalendarDays className="h-4 w-4" />
-            Schedule a call
+            {t.sidebar.scheduleCall}
           </motion.a>
         </div>
       </div>

@@ -1,14 +1,15 @@
 import { useState } from "react"
-import { projects } from "../data/cv"
 import { Code2, ExternalLink, Grid2X2, Rows3 } from "lucide-react"
 import { motion } from "motion/react"
+import { useLanguage } from "../context/language"
 
 type ProjectPreviewProps = {
   image: string
+  fallbackLabel: string
   title: string
 }
 
-function ProjectPreview({ image, title }: ProjectPreviewProps) {
+function ProjectPreview({ image, fallbackLabel, title }: ProjectPreviewProps) {
   const [hasError, setHasError] = useState(false)
 
   return (
@@ -17,7 +18,7 @@ function ProjectPreview({ image, title }: ProjectPreviewProps) {
         <div className="absolute inset-0 grid place-items-center bg-[linear-gradient(rgba(168,85,247,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.08)_1px,transparent_1px)] bg-[size:28px_28px]">
           <div className="border border-purple-400/30 bg-black/40 px-4 py-3 text-center">
             <p className="text-xs font-bold text-purple-200">{title}</p>
-            <p className="mt-1 text-[11px] text-[#8f8f8f]">Preview unavailable</p>
+            <p className="mt-1 text-[11px] text-[#8f8f8f]">{fallbackLabel}</p>
           </div>
         </div>
       ) : (
@@ -35,10 +36,12 @@ function ProjectPreview({ image, title }: ProjectPreviewProps) {
 }
 
 export function Projects() {
+  const { t } = useLanguage()
+
   return (
     <section id="projects" className="px-5 pb-28 sm:px-10 md:px-16 lg:px-20">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-        <p className="editor-comment text-sm">{"<!-- Featured work -->"}</p>
+        <p className="editor-comment text-sm">{t.projects.comment}</p>
         <div className="hidden gap-1 border border-[#2d2d2d] p-1 md:flex">
           <span className="grid h-7 w-7 place-items-center bg-white text-black">
             <Grid2X2 className="h-4 w-4" />
@@ -50,7 +53,7 @@ export function Projects() {
       </div>
 
       <div className="grid gap-8 md:grid-cols-2">
-        {projects.map((project, index) => (
+        {t.projects.items.map((project, index) => (
           <motion.article
             key={project.title}
             className="group border border-[#2d2d2d] bg-[#171717] transition-colors hover:border-purple-400/80"
@@ -60,7 +63,11 @@ export function Projects() {
             transition={{ delay: index * 0.06 }}
             whileHover={{ y: -4 }}
           >
-            <ProjectPreview image={project.previewImage} title={project.title} />
+            <ProjectPreview
+              image={project.previewImage}
+              fallbackLabel={t.projects.previewUnavailable}
+              title={project.title}
+            />
 
             <div className="grid grid-cols-[1fr_52px] border-y border-[#2d2d2d]">
               <h3 className="px-4 py-3 text-sm font-bold text-[#f5f5f5] transition-colors group-hover:text-purple-300">
@@ -92,21 +99,21 @@ export function Projects() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`View live demo for ${project.title}`}
+                  aria-label={`${t.projects.liveDemoAria} ${project.title}`}
                   className="inline-flex items-center justify-center gap-2 bg-purple-300 px-4 py-3 text-sm font-bold text-black transition hover:bg-purple-200"
                 >
                   <ExternalLink className="h-4 w-4" />
-                  View Demo
+                  {t.projects.viewDemo}
                 </a>
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`View GitHub repository for ${project.title}`}
+                  aria-label={`${t.projects.githubAria} ${project.title}`}
                   className="inline-flex items-center justify-center gap-2 border border-[#2d2d2d] px-4 py-3 text-sm font-bold text-[#f4f4f4] transition hover:border-purple-400 hover:text-purple-200"
                 >
                   <Code2 className="h-4 w-4" />
-                  GitHub
+                  {t.projects.github}
                 </a>
               </div>
             </div>

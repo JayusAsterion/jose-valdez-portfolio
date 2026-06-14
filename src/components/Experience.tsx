@@ -1,15 +1,17 @@
-import { experience } from "../data/cv"
 import { motion } from "motion/react"
+import { useLanguage } from "../context/language"
 
 export function Experience() {
+  const { t } = useLanguage()
+
   return (
     <section id="experience" className="border-y border-[#2d2d2d] px-5 py-16 sm:px-10 md:px-16 lg:px-20">
       <p className="editor-comment mb-7 text-sm">
-        {"<!-- In a previous life -->"}
+        {t.experience.comment}
       </p>
 
       <div className="border-y border-[#292929]">
-        {experience.map((job, index) => (
+        {t.experience.jobs.map((job, index) => (
           <motion.article
             key={`${job.company}-${job.period}`}
             className="grid min-h-[60px] gap-3 border-b border-[#292929] py-5 text-sm last:border-b-0 md:grid-cols-[230px_minmax(0,1fr)_290px] md:items-center xl:grid-cols-[280px_minmax(0,1fr)_320px]"
