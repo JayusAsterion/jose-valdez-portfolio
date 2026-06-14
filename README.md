@@ -10,8 +10,6 @@ The visual concept is inspired by a dark code-editor style portfolio originally 
 
 ## Preview
 
-> Live demo coming soon.
-
 After deployment, the site will be available at:
 
 ```txt

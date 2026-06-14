@@ -123,46 +123,44 @@ export const experience = [
 
 export const projects = [
   {
-    title: "Skincare eCommerce",
+    title: "Hand Music Controller",
     description:
-      "A refined commerce interface inspired by product-led storefronts, reusable UI systems and conversion-focused flows.",
-    stack: ["React", "TypeScript", "Commerce"],
-    image: "/images/framer/work-skincare.avif",
+      "An experimental hand-tracking music controller built with React, TypeScript, webcam-based gesture recognition, and interactive audio controls.",
+    stack: ["React", "TypeScript", "Vite", "MediaPipe", "Web Audio", "Creative Coding"],
+    githubUrl: "https://github.com/JayusAsterion/hand-music-controller",
+    liveUrl: "https://hand-music-controller.vercel.app/",
+    previewGradient: "from-purple-500/30 via-fuchsia-500/10 to-cyan-400/20",
+    previewPattern: "gesture",
   },
   {
-    title: "Minimal Form",
+    title: "Inkside Antigua",
     description:
-      "A clean form experience with restrained visuals, responsive layout and accessible interaction states.",
-    stack: ["React", "Tailwind", "UX"],
-    image: "/images/framer/work-minimal-form.avif",
+      "A modern landing page for a tattoo studio, focused on strong visual identity, responsive design, service presentation, artist sections, and smooth user experience.",
+    stack: ["React", "TypeScript", "Vite", "Tailwind", "Responsive UI", "Landing Page"],
+    githubUrl: "https://github.com/JayusAsterion/inkside-antigua",
+    liveUrl: "https://inkside-antigua.vercel.app/",
+    previewGradient: "from-zinc-100/15 via-purple-500/15 to-rose-500/20",
+    previewPattern: "studio",
   },
   {
-    title: "Real Estate Website",
+    title: "AI Review Copilot",
     description:
-      "A visual property landing page structure focused on editorial rhythm, imagery and clear call-to-actions.",
-    stack: ["Frontend", "Responsive", "CMS"],
-    image: "/images/framer/work-real-estate.avif",
+      "A local-first AI code review assistant that helps developers and QA teams generate structured code reviews, bug reports, test cases, and PR comments from diffs, files, screenshots, and notes.",
+    stack: ["React", "TypeScript", "Vite", "Tailwind", "AI", "Code Review", "Developer Tools"],
+    githubUrl: "https://github.com/JayusAsterion/ai-review-copilot",
+    liveUrl: "https://ai-review-copilot.vercel.app/review",
+    previewGradient: "from-violet-500/25 via-sky-500/10 to-emerald-400/20",
+    previewPattern: "review",
   },
   {
-    title: "Podcast Landing Page",
+    title: "Rugby Buccaneers Landing",
     description:
-      "A dark media landing page concept with bold art direction, strong contrast and repeatable content modules.",
-    stack: ["React", "Media", "Design"],
-    image: "/images/framer/work-podcast.avif",
-  },
-  {
-    title: "AI Meets Education",
-    description:
-      "An AI education product concept with clear information architecture and modular interface states.",
-    stack: ["AI", "Product", "UI"],
-    image: "/images/framer/work-education.avif",
-  },
-  {
-    title: "Mobile Banking App",
-    description:
-      "A financial product interface exploring trust, speed and clean interaction patterns for mobile workflows.",
-    stack: ["Fintech", "Mobile", "Systems"],
-    image: "/images/framer/work-banking.avif",
+      "A sports landing page for a rugby team with a bold visual style, responsive sections, team branding, calls to action, and modern animations.",
+    stack: ["React", "TypeScript", "Vite", "Tailwind", "Landing Page", "Sports Website"],
+    githubUrl: "https://github.com/JayusAsterion/rugby-buccaneers-landing",
+    liveUrl: "https://rugby-buccaneers-landing.vercel.app/",
+    previewGradient: "from-purple-600/25 via-amber-500/10 to-red-500/20",
+    previewPattern: "sports",
   },
 ]
 
