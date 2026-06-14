@@ -10,6 +10,8 @@ The visual concept is inspired by a dark code-editor style portfolio originally 
 
 ## Preview
 
+![Portfolio preview](public/previews/homepage.png)
+
 After deployment, the site will be available at:
 
 ```txt

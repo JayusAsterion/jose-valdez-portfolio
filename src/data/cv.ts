@@ -129,8 +129,7 @@ export const projects = [
     stack: ["React", "TypeScript", "Vite", "MediaPipe", "Web Audio", "Creative Coding"],
     githubUrl: "https://github.com/JayusAsterion/hand-music-controller",
     liveUrl: "https://hand-music-controller.vercel.app/",
-    previewGradient: "from-purple-500/30 via-fuchsia-500/10 to-cyan-400/20",
-    previewPattern: "gesture",
+    previewImage: "/previews/projects/hand-music-controller.png",
   },
   {
     title: "Inkside Antigua",
@@ -139,8 +138,7 @@ export const projects = [
     stack: ["React", "TypeScript", "Vite", "Tailwind", "Responsive UI", "Landing Page"],
     githubUrl: "https://github.com/JayusAsterion/inkside-antigua",
     liveUrl: "https://inkside-antigua.vercel.app/",
-    previewGradient: "from-zinc-100/15 via-purple-500/15 to-rose-500/20",
-    previewPattern: "studio",
+    previewImage: "/previews/projects/inkside-antigua.png",
   },
   {
     title: "AI Review Copilot",
@@ -149,8 +147,7 @@ export const projects = [
     stack: ["React", "TypeScript", "Vite", "Tailwind", "AI", "Code Review", "Developer Tools"],
     githubUrl: "https://github.com/JayusAsterion/ai-review-copilot",
     liveUrl: "https://ai-review-copilot.vercel.app/review",
-    previewGradient: "from-violet-500/25 via-sky-500/10 to-emerald-400/20",
-    previewPattern: "review",
+    previewImage: "/previews/projects/ai-review-copilot.png",
   },
   {
     title: "Rugby Buccaneers Landing",
@@ -159,8 +156,7 @@ export const projects = [
     stack: ["React", "TypeScript", "Vite", "Tailwind", "Landing Page", "Sports Website"],
     githubUrl: "https://github.com/JayusAsterion/rugby-buccaneers-landing",
     liveUrl: "https://rugby-buccaneers-landing.vercel.app/",
-    previewGradient: "from-purple-600/25 via-amber-500/10 to-red-500/20",
-    previewPattern: "sports",
+    previewImage: "/previews/projects/rugby-buccaneers-landing.png",
   },
 ]
 

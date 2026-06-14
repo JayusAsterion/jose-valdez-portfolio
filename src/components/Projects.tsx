@@ -1,54 +1,38 @@
+import { useState } from "react"
 import { projects } from "../data/cv"
 import { Code2, ExternalLink, Grid2X2, Rows3 } from "lucide-react"
 import { motion } from "motion/react"
 
-const previewPatterns = {
-  gesture: (
-    <>
-      <div className="absolute left-8 top-8 h-24 w-24 rounded-full border border-purple-300/30 bg-purple-400/10 blur-[1px]" />
-      <div className="absolute left-16 top-16 h-2 w-32 rotate-12 bg-purple-300/40" />
-      <div className="absolute bottom-8 right-8 grid grid-cols-5 gap-1.5">
-        {Array.from({ length: 15 }, (_, index) => (
-          <span
-            key={index}
-            className="h-8 w-1.5 rounded-full bg-purple-200/50"
-            style={{ transform: `scaleY(${0.35 + (index % 5) * 0.16})` }}
-          />
-        ))}
-      </div>
-    </>
-  ),
-  studio: (
-    <>
-      <div className="absolute left-7 top-7 h-28 w-20 border border-white/15 bg-black/30" />
-      <div className="absolute left-12 top-12 h-32 w-32 rounded-full border border-purple-300/30" />
-      <div className="absolute bottom-9 right-8 h-16 w-40 border border-white/10 bg-white/5" />
-      <div className="absolute bottom-14 right-14 h-2 w-28 bg-purple-300/50" />
-    </>
-  ),
-  review: (
-    <>
-      <div className="absolute left-7 top-7 h-32 w-[58%] border border-white/10 bg-black/25 p-3">
-        <div className="mb-3 h-2 w-28 bg-purple-300/50" />
-        <div className="mb-2 h-2 w-full bg-white/10" />
-        <div className="mb-2 h-2 w-4/5 bg-white/10" />
-        <div className="h-2 w-2/3 bg-emerald-300/35" />
-      </div>
-      <div className="absolute bottom-8 right-8 h-24 w-36 border border-purple-300/20 bg-purple-950/25" />
-      <div className="absolute bottom-14 right-14 h-8 w-20 border border-emerald-300/30" />
-    </>
-  ),
-  sports: (
-    <>
-      <div className="absolute left-7 top-7 h-20 w-20 rounded-full border-[10px] border-purple-300/20" />
-      <div className="absolute right-8 top-10 h-28 w-44 skew-x-[-12deg] border border-amber-300/25 bg-black/20" />
-      <div className="absolute bottom-8 left-10 h-3 w-52 bg-purple-300/40" />
-      <div className="absolute bottom-14 left-10 h-3 w-36 bg-amber-300/40" />
-    </>
-  ),
+type ProjectPreviewProps = {
+  image: string
+  title: string
 }
 
-type ProjectPattern = keyof typeof previewPatterns
+function ProjectPreview({ image, title }: ProjectPreviewProps) {
+  const [hasError, setHasError] = useState(false)
+
+  return (
+    <div className="relative aspect-video overflow-hidden border border-[#2d2d2d] bg-[#111]">
+      {hasError ? (
+        <div className="absolute inset-0 grid place-items-center bg-[linear-gradient(rgba(168,85,247,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.08)_1px,transparent_1px)] bg-[size:28px_28px]">
+          <div className="border border-purple-400/30 bg-black/40 px-4 py-3 text-center">
+            <p className="text-xs font-bold text-purple-200">{title}</p>
+            <p className="mt-1 text-[11px] text-[#8f8f8f]">Preview unavailable</p>
+          </div>
+        </div>
+      ) : (
+        <motion.img
+          src={image}
+          alt={`${title} live demo preview`}
+          className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:opacity-100"
+          onError={() => setHasError(true)}
+          whileHover={{ scale: 1.035 }}
+        />
+      )}
+      <div className="pointer-events-none absolute inset-0 border border-white/5 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
+    </div>
+  )
+}
 
 export function Projects() {
   return (
@@ -76,7 +60,9 @@ export function Projects() {
             transition={{ delay: index * 0.06 }}
             whileHover={{ y: -4 }}
           >
-            <div className="grid grid-cols-[1fr_52px] border-b border-[#2d2d2d]">
+            <ProjectPreview image={project.previewImage} title={project.title} />
+
+            <div className="grid grid-cols-[1fr_52px] border-y border-[#2d2d2d]">
               <h3 className="px-4 py-3 text-sm font-bold text-[#f5f5f5] transition-colors group-hover:text-purple-300">
                 {project.title}
               </h3>
@@ -86,20 +72,7 @@ export function Projects() {
             </div>
 
             <div className="p-4">
-              <div className="overflow-hidden border border-[#2d2d2d] bg-[#111]">
-                <motion.div
-                  className={`relative aspect-[1.55] bg-gradient-to-br ${project.previewGradient}`}
-                  whileHover={{ scale: 1.025 }}
-                >
-                  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:28px_28px]" />
-                  {previewPatterns[project.previewPattern as ProjectPattern]}
-                  <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/35 px-4 py-3">
-                    <p className="text-xs font-bold text-purple-100">{project.title}</p>
-                  </div>
-                </motion.div>
-              </div>
-
-              <p className="mt-5 min-h-[96px] text-sm font-medium leading-6 text-[#b9b9b9]">
+              <p className="min-h-[120px] text-sm font-medium leading-6 text-[#b9b9b9]">
                 {project.description}
               </p>
 
