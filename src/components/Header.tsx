@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { Circle } from "lucide-react"
 import { motion } from "motion/react"
 
@@ -6,7 +7,25 @@ const tabs = [
   { href: "#projects", label: "work.done" },
 ]
 
+function getCurrentTime() {
+  return new Intl.DateTimeFormat(undefined, {
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(new Date())
+}
+
 export function Header() {
+  const [currentTime, setCurrentTime] = useState(getCurrentTime)
+
+  useEffect(() => {
+    const updateTime = () => setCurrentTime(getCurrentTime())
+    updateTime()
+
+    const intervalId = window.setInterval(updateTime, 60_000)
+
+    return () => window.clearInterval(intervalId)
+  }, [])
+
   return (
     <header className="sticky top-0 z-50 border-b border-[#2d2d2d] bg-[#181818]">
       <div className="grid h-8 w-full grid-cols-1 lg:grid-cols-[300px_minmax(0,1fr)_200px]">
@@ -46,7 +65,7 @@ export function Header() {
               Senior Software Engineer
             </span>
             <span className="shrink-0 whitespace-nowrap">Guatemala</span>
-            <span className="shrink-0 whitespace-nowrap">My time: 02:56 AM</span>
+            <span className="shrink-0 whitespace-nowrap">My time: {currentTime}</span>
           </div>
         </div>
 
